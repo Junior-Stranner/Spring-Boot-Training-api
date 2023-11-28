@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class CreateUserRoleDTO {
 
-  private UUID idUser;
+  private Long idUser;
 
   private List<UUID> idsRoles;
 

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jujubaprojects.springboot.Model.User;
 import br.com.jujubaprojects.springboot.Repository.UserRepository;
+import br.com.jujubaprojects.springboot.Service.CreateRoleUserService;
 import br.com.jujubaprojects.springboot.Service.CreateUserService;
+import br.com.jujubaprojects.springboot.dto.CreateUserRoleDTO;
 
 @RestController
 @RequestMapping("/users")
@@ -25,6 +27,9 @@ public class UserController {
 
      @Autowired
     CreateUserService createUserService;
+
+     @Autowired
+    CreateRoleUserService createRoleUserService;
 
     private List<User> users = new ArrayList<>();
     
@@ -44,8 +49,13 @@ public class UserController {
     }
 
      @PostMapping("/create")
-    public User user(@RequestBody User user){
+    public User create(@RequestBody User user){
         return createUserService.execute(user);
+    }
+
+      @PostMapping("/role")
+    public User role(@RequestBody CreateUserRoleDTO createUserRoleDTO){
+        return createRoleUserService.execute(createUserRoleDTO);
     }
 
      @GetMapping("/listarTodos")

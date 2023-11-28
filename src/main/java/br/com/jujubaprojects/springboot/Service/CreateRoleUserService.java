@@ -36,9 +36,9 @@ public class CreateRoleUserService {
 
     user.setRoles(roles);
 
-    userRepository.save(user);
+  //  userRepository.save(user);
 
-    return user;
+    return  userRepository.save(user);
 
   }
 }
