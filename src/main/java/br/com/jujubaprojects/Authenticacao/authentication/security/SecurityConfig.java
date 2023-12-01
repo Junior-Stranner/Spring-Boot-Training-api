@@ -1,4 +1,4 @@
-/*package br.com.jujubaprojects.Authenticacao.authentication.security;
+package br.com.jujubaprojects.Authenticacao.authentication.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +15,10 @@ public class SecurityConfig {
         return http
         .authorizeHttpRequests(
             autorieConfig -> {
-              autorieConfig.requestMatchers("/public").permitAll();
+              autorieConfig.requestMatchers("/listarTodos").permitAll();
               autorieConfig.requestMatchers("/logout").permitAll();
               autorieConfig.anyRequest().authenticated();
                 })
            .build();
     }
-}*/
+}
